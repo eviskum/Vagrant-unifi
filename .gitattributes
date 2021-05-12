@@ -1,0 +1,2 @@
+# defaults/main.yml filter=git-crypt diff=git-crypt
+.gitattributes !filter !diff

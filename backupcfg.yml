@@ -1,0 +1,21 @@
+---
+
+- hosts: all
+  become: yes
+
+  tasks:
+
+  - name: Find backup files
+    find:
+      paths: "/var/lib/unifi/backup"
+      recurse: yes
+      patterns: "*.unf"
+      file_type: any
+    register: files_to_copy
+
+  - name: Fetch backup files
+    fetch:
+      src: "{{ item.path }}"
+      dest: "~/.ansible/backups/unifi/"
+      flat: yes
+    with_items: "{{ files_to_copy.files }}"

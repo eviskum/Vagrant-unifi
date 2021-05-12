@@ -1,0 +1,6 @@
+---
+
+- name: Set up Unifi Controller
+  hosts: all
+  roles:
+    - { role: unifi-controller, become: yes }

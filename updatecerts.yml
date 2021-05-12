@@ -1,0 +1,6 @@
+---
+
+- name: Update certs
+  hosts: all
+  roles:
+    - { role: letsencrypt-client, unifi_hostname: "unifi.viskum-net.dk", become: yes }
